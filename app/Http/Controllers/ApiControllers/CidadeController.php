@@ -23,7 +23,7 @@ class CidadeController extends Controller
      */
     public function index()
     {
-        return CidadeResource::collection(Cidade::all());
+        return CidadeResource::collection(Cidade::with('postos')->get());
     }
      /**
      * Display the specified resource.

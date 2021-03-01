@@ -65,6 +65,7 @@ POST /api/cidade/
 ```
 {
     id : id,
+    cidade_id:cidade_id,
     reservatorio : reservatorio,
     latitude : latitude,
     longitude : longitude

@@ -32,7 +32,7 @@ class PostoRequest extends FormRequest
         case "POST":
             {
                 return [
-                    'cidade_id' => 'required|numeric',
+                    'cidade_id' => 'required|numeric|exists:cidades,id',
                     'reservatorio' => 'required|numeric|between:0,100.00',
                     'latitude' =>'numeric|required',
                     'longitude' =>'numeric|required',

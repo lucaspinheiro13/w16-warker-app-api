@@ -147,6 +147,11 @@ return [
         'email' =>[
             'required' => 'Informe seu email',
             'unique' => 'O Email já foi utilizado'
+        ],
+        'cidade_id'=>[
+            'required'=> "Informe o Número da Cidade",
+            'numeric' => "É necessário fornecer o número de referência da cidade",
+            'exists' => "Não existe uma cidade com essa referência"
         ]
     ],
 

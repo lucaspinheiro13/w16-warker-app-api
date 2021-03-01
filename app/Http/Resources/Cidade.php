@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Posto as PostoResource;
-use App\Models\Posto;
+
 
 class Cidade extends JsonResource
 {
@@ -17,7 +17,7 @@ class Cidade extends JsonResource
      */
     public function toArray($request)
     {
-        $posto = new Posto();
+      
 
         return [
             "id"=> $this->id,
@@ -26,7 +26,7 @@ class Cidade extends JsonResource
                 "longitude"=>$this->longitude,
                 "latitude"=>$this->latitude
             ],
-            "postos"=>PostoResource::collection($posto->getPostosCidade($this->id))
+            "postos"=>PostoResource::collection($this->postos)
         ];
     }
 }

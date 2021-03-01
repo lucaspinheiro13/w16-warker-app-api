@@ -78,7 +78,7 @@ class Postos extends Component
     public function store()
     {
         $this->validate([
-            'cidade_id' => 'required|numeric',
+            'cidade_id' => 'required|numeric|exists:cidades,id',
             'reservatorio' => 'required|numeric|between:0,100.00',
             'latitude' =>'numeric|required',
             'longitude' =>'numeric|required',

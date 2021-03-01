@@ -10,15 +10,7 @@ class Posto extends Model
 {
     use  HasFactory,SoftDeletes;
    
-    /**
-     * Retorna dados do relacionamento de Postos com Cidades
-     * 
-     * @param $id id da cidade atual 
-     * @return Collection 
-     */
-    public function getPostosCidade($id){
-       return Posto::where('cidade_id','=',$id)->orderBy("id")->get();
-    }
+  
     /**
      * Retorna a cidade relacionada a Posto
      * 
