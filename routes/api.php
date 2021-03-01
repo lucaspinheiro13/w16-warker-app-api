@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiControllers\CidadeController; 
 use App\Http\Controllers\ApiControllers\PostoController;
-use App\Http\Controllers\ApiControllers\UserController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,6 +20,10 @@ use App\Http\Controllers\ApiControllers\UserController;
  * Grupo de Rotas protegidas por Token
  */
 Route::group(["middleware"=>"auth:sanctum"],function(){
+    Route::get('/get-me',[UserController::class,'getMe']);
+
+    Route::post('/logout',[UserController::class,'logout']);
+
     //Cidades
     Route::apiResource('cidade',CidadeController::class);
     //Postos
@@ -28,3 +32,4 @@ Route::group(["middleware"=>"auth:sanctum"],function(){
 
 Route::post('/login',[UserController::class,'index']);
 Route::post('/register',[UserController::class,'register']);
+

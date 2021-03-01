@@ -57,7 +57,7 @@ class Handler extends ExceptionHandler
                 return response()->json("Dados não encontrados",404,['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
             }
             if($e instanceof QueryException && $request->wantsJson()){
-                return response()->json('Faltam Dados na sua estrutura',401,['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
+                return response()->json('Faltam Dados na sua estrutura'.$e->getMessage() ,401,['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
  
             }
             if($e instanceof HttpException && $request->wantsJson()){
