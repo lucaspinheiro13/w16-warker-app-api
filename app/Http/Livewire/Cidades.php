@@ -86,8 +86,8 @@ class Cidades extends Component
             'longitude'=>$this->longitude
         ]);
         $cidade->save();
-        session()->flash('message', 
-            $this->cidade_id ? 'Cidade Atualizada com Successo.' : 'Cidade criada com Successo.');
+        // session()->flash('message', 
+        //     $this->cidade_id ? 'Cidade Atualizada com Successo.' : 'Cidade criada com Successo.');
   
         $this->closeModal();
         $this->resetInputFields();
@@ -118,6 +118,6 @@ class Cidades extends Component
     public function delete($id)
     {
         Cidade::find($id)->delete();
-        session()->flash('message', 'Cidade Apagada com Sucesso.');
+        // session()->flash('message', 'Cidade Apagada com Sucesso.');
     }
 }
