@@ -19,7 +19,7 @@ use App\Http\Controllers\UserController;
 /**
  * Grupo de Rotas protegidas por Token
  */
-Route::group(["middleware"=>"auth:sanctum"],function(){
+Route::group(["middleware"=>["auth:sanctum"]],function(){
     Route::get('/get-me',[UserController::class,'getMe']);
 
     Route::post('/logout',[UserController::class,'logout']);
