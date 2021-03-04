@@ -42,82 +42,82 @@ class CidadeController extends Controller
      * @param \App\Http\Requests\CidadeRequest  $request
      * @return JsonResponse|CidadeResource
      */
-    public function store(CidadeRequest $request)
-    {
-        DB::beginTransaction();
-        try{
-            $cidade = CidadeTransformer::toInstance($request->validated());
-            $cidade->save();
-            DB::commit();
+    // public function store(CidadeRequest $request)
+    // {
+    //     DB::beginTransaction();
+    //     try{
+    //         $cidade = CidadeTransformer::toInstance($request->validated());
+    //         $cidade->save();
+    //         DB::commit();
            
-        } catch (Exception $e){
-            Log::info($e->getMessage());
-            DB::rollBack();
-            return $this->jsonResponse(["Error"=>$e->getMessage()],403);
+    //     } catch (Exception $e){
+    //         Log::info($e->getMessage());
+    //         DB::rollBack();
+    //         return $this->jsonResponse(["Error"=>$e->getMessage()],403);
             
-        }
+    //     }
       
-        return (new CidadeResource($cidade))
-        ->additional([
-            "meta" => [
-                "success" => true,
-                "message" => "Cidade Criada com Sucesso!"
-            ]
-        ]);
+    //     return (new CidadeResource($cidade))
+    //     ->additional([
+    //         "meta" => [
+    //             "success" => true,
+    //             "message" => "Cidade Criada com Sucesso!"
+    //         ]
+    //     ]);
       
-    }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\CidadeRequest  $request
-     * @param  Cidade $cidade
-     * @return  JsonResponse
-     */
-    public function update(CidadeRequest $request,Cidade $cidade)
-    {
+    // }
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \App\Http\Requests\CidadeRequest  $request
+    //  * @param  Cidade $cidade
+    //  * @return  JsonResponse
+    //  */
+    // public function update(CidadeRequest $request,Cidade $cidade)
+    // {
    
-        DB::beginTransaction();
-        try{
-            $cidade = CidadeTransformer::toInstance($request->validated(),$cidade);
-            $cidade->save();
-            DB::commit();
+    //     DB::beginTransaction();
+    //     try{
+    //         $cidade = CidadeTransformer::toInstance($request->validated(),$cidade);
+    //         $cidade->save();
+    //         DB::commit();
            
-        } catch (Exception $e){
-            Log::info($e->getMessage());
-            DB::rollBack();
-            return $this->jsonResponse(["Error"=>$e->getMessage()],403);
+    //     } catch (Exception $e){
+    //         Log::info($e->getMessage());
+    //         DB::rollBack();
+    //         return $this->jsonResponse(["Error"=>$e->getMessage()],403);
             
-        }
+    //     }
       
-        return (new CidadeResource($cidade))
-        ->additional([
-            "meta" => [
-                "success" => true,
-                "message" => "Cidade Alterada com Sucesso!"
-            ]
-        ]);
+    //     return (new CidadeResource($cidade))
+    //     ->additional([
+    //         "meta" => [
+    //             "success" => true,
+    //             "message" => "Cidade Alterada com Sucesso!"
+    //         ]
+    //     ]);
       
-    }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  Cidade $cidade
-     * @return  JsonResponse
-     */
-    public function destroy(Cidade $cidade){
-        DB::beginTransaction();
-        try{
-            $cidade->delete();
-            $cidade->save();
-            DB::commit();
-        } catch (Exception $e){
-            Log::info($e->getMessage());
-            DB::rollBack();
-            return $this->jsonResponse(["Erro"=>$e->getMessage()],409);
-        }
+    // }
+    // /**
+    //  * Remove the specified resource from storage.
+    //  *
+    //  * @param  Cidade $cidade
+    //  * @return  JsonResponse
+    //  */
+    // public function destroy(Cidade $cidade){
+    //     DB::beginTransaction();
+    //     try{
+    //         $cidade->delete();
+    //         $cidade->save();
+    //         DB::commit();
+    //     } catch (Exception $e){
+    //         Log::info($e->getMessage());
+    //         DB::rollBack();
+    //         return $this->jsonResponse(["Erro"=>$e->getMessage()],409);
+    //     }
 
-        return $this->jsonResponse(["Message"=>"Cidade deletada com sucesso {$cidade->name}"]);
-    }
+    //     return $this->jsonResponse(["Message"=>"Cidade deletada com sucesso {$cidade->name}"]);
+    // }
 
  
 
