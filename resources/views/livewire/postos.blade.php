@@ -15,10 +15,10 @@
                   </div>
                 </div>
             @endif
-            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Criar Novo Posto</button>
+            {{-- <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Criar Novo Posto</button>
             @if($isOpen)
                 @include('livewire.create-posto')
-            @endif
+            @endif --}}
             <table class="table-fixed w-full">
                 <thead>
                     <tr class="bg-gray-100">
@@ -28,7 +28,6 @@
                         <th class="px-4 py-2">Reservatorio</th>
                         <th class="px-4 py-2">Longitude</th>
                         <th class="px-4 py-2">Latitude</th>
-                        <th class="px-4 py-2">Açoes</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,10 +39,6 @@
                         <td class="border px-4 py-2">{{ $posto->reservatorio }}</td>
                         <td class="border px-4 py-2">{{ $posto->longitude }}</td>
                         <td class="border px-4 py-2">{{ $posto->latitude }}</td>
-                        <td class="border px-4 py-2">
-                        <button wire:click="edit({{ $posto->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
-                            <button wire:click="delete({{ $posto->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Deletar</button>
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>
