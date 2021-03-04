@@ -26,7 +26,7 @@
                         <th class="px-4 py-2">Nome da Cidade</th>
                         <th class="px-4 py-2">Longitude</th>
                         <th class="px-4 py-2">Latitude</th>
-                        <th class="px-4 py-2">Açoes</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
