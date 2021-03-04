@@ -17,8 +17,8 @@ class CreatePostosTable extends Migration
             $table->id();
             $table->foreignId("cidade_id")->constrained("cidades")->onDelete("cascade");
             $table->integer("reservatorio");
-            $table->double("latitude");
-            $table->double("longitude");
+            $table->string("latitude");
+            $table->string("longitude");
             $table->softDeletes();
             $table->timestamps();
         });

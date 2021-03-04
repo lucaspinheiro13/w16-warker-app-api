@@ -15,9 +15,9 @@ class CreateCidadesTable extends Migration
     {
         Schema::create('cidades', function (Blueprint $table) {
             $table->id();
-            $table->string("nome_da_cidade");
-            $table->double("latitude");
-            $table->double("longitude");
+            $table->string("nome_da_cidade")->unique();
+            $table->string("latitude");
+            $table->string("longitude");
             $table->softDeletes();
             $table->timestamps();
         });
